@@ -8,7 +8,7 @@ public class MarchMadness {
 	public static void main(String[] args) throws IOException {
 		ArrayList<Team> teamList = new ArrayList<Team>();
 		//an ArrayList that stores all of the teams
-		Scanner fileScnr = new Scanner(new File("TeamList.txt"));
+		Scanner fileScnr = new Scanner(new File("TeamList2017.txt"));
 		while (fileScnr.hasNextLine()) {
 		//reads each team in and adds it to teamList
 			String line = fileScnr.nextLine();
@@ -19,6 +19,7 @@ public class MarchMadness {
 		String out = "";
 		out = createRegions(teamList, out);
 		ArrayList<Team> finalFour = new ArrayList<Team>();
+		//add the final four teams to the final four list
 		for(int i = 0; i<teamList.size(); i++){
 			if(teamList.get(i).getWonLastGame()) finalFour.add(teamList.get(i));
 		}
@@ -118,13 +119,13 @@ public class MarchMadness {
 			boolean won = doesTeam1Win(region.get(i), region.get(i+1));
 			region.get(i).setWonLastGame(won);
 			region.get(i+1).setWonLastGame(!won);
-			if(won)nextRound.add(region.get(i));
+			if(won) nextRound.add(region.get(i));
 			else nextRound.add(region.get(i+1));
 		}
 		//initialize String for just this round
 		String round="";
 		//identify the teams by seed and region until there are names to be used
-		for(int i = 0; i<nextRound.size(); i++) round+=nextRound.get(i).getSeed()+nextRound.get(i).getRegion()+" ";
+		for(int i = 0; i<nextRound.size(); i++) round+=nextRound.get(i).getName()+", ";
 		out+=round+"\n";
 		//stop recursion if we've found a regional winner
 		if (nextRound.size()==1) return out;
@@ -133,32 +134,33 @@ public class MarchMadness {
 		else return tournament(nextRound, out);
 	}
 	
+	//indexing is convaluted because the regions were shifted around in 2017 bracket
 	public static String finalFour(ArrayList<Team> finalFour, String out){
-		boolean midwest = doesTeam1Win(finalFour.get(0), finalFour.get(1));
-		if(midwest) out+=finalFour.get(0).getSeed()+finalFour.get(0).getRegion()+" ";
-		else out+=finalFour.get(1).getSeed()+finalFour.get(1).getRegion()+" ";
-		boolean east = doesTeam1Win(finalFour.get(2), finalFour.get(3));
-		if(east) out+=finalFour.get(2).getSeed()+finalFour.get(2).getRegion()+"\n";
-		else out+=finalFour.get(3).getSeed()+finalFour.get(3).getRegion()+"\n";
+		boolean midwest = doesTeam1Win(finalFour.get(0), finalFour.get(3));
+		if(midwest) out+=finalFour.get(0).getName()+", ";
+		else out+=finalFour.get(3).getName()+", ";
+		boolean east = doesTeam1Win(finalFour.get(2), finalFour.get(1));
+		if(east) out+=finalFour.get(2).getName()+"\n";
+		else out+=finalFour.get(1).getName()+"\n";
 		if(midwest&east){
-			boolean left = doesTeam1Win(finalFour.get(0), finalFour.get(2));
-			if(left) out+=finalFour.get(0).getSeed()+finalFour.get(0).getRegion();
-			else out+=finalFour.get(2).getSeed()+finalFour.get(2).getRegion();
+			boolean left = doesTeam1Win(finalFour.get(2), finalFour.get(0));
+			if(left) out+=finalFour.get(2).getName();
+			else out+=finalFour.get(0).getName();
 		}
 		if(midwest&!east){
-			boolean left = doesTeam1Win(finalFour.get(0), finalFour.get(3));
-			if(left) out+=finalFour.get(0).getSeed()+finalFour.get(0).getRegion();
-			else out+=finalFour.get(3).getSeed()+finalFour.get(3).getRegion();
+			boolean left = doesTeam1Win(finalFour.get(1), finalFour.get(0));
+			if(left) out+=finalFour.get(1).getName();
+			else out+=finalFour.get(0).getName();
 		}
 		if(!midwest&east){
-			boolean left = doesTeam1Win(finalFour.get(1), finalFour.get(2));
-			if(left) out+=finalFour.get(1).getSeed()+finalFour.get(1).getRegion();
-			else out+=finalFour.get(2).getSeed()+finalFour.get(2).getRegion();
+			boolean left = doesTeam1Win(finalFour.get(2), finalFour.get(3));
+			if(left) out+=finalFour.get(2).getName();
+			else out+=finalFour.get(3).getName();
 		}
 		if(!midwest&!east){
 			boolean left = doesTeam1Win(finalFour.get(1), finalFour.get(3));
-			if(left) out+=finalFour.get(1).getSeed()+finalFour.get(1).getRegion();
-			else out+=finalFour.get(3).getSeed()+finalFour.get(3).getRegion();
+			if(left) out+=finalFour.get(1).getName();
+			else out+=finalFour.get(3).getName();
 		}
 		return out;
 	}
