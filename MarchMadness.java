@@ -8,7 +8,7 @@ public class MarchMadness {
 	public static void main(String[] args) throws IOException {
 		ArrayList<Team> teamList = new ArrayList<Team>();
 		//an ArrayList that stores all of the teams
-		Scanner fileScnr = new Scanner(new File("TeamList2017.txt"));
+		Scanner fileScnr = new Scanner(new File("C:\\Users\\catmc\\OneDrive\\Documents\\Java\\MarchMadness\\TeamList.txt"));
 		while (fileScnr.hasNextLine()) {
 		//reads each team in and adds it to teamList
 			String line = fileScnr.nextLine();
@@ -32,11 +32,11 @@ public class MarchMadness {
 	//makes an arraylist for each region
 	//returns the results of each region
 	public static String createRegions(ArrayList<Team> teamList, String out){
-		ArrayList<Team> midwestList = new ArrayList<Team>();
+		ArrayList<Team> southList = new ArrayList<Team>();
 		for(int i = 0; i < 16; i++){
-			midwestList.add(teamList.get(i));
+			southList.add(teamList.get(i));
 		}
-		String out1 = tournament(midwestList, out);
+		String out1 = tournament(southList, out);
 		ArrayList<Team> westList = new ArrayList<Team>();
 		for(int i = 16; i < 32; i++){
 			westList.add(teamList.get(i));
@@ -47,11 +47,11 @@ public class MarchMadness {
 			eastList.add(teamList.get(i));
 		}
 		String out3 = tournament(eastList, out);
-		ArrayList<Team> southList = new ArrayList<Team>();
+		ArrayList<Team> midwestList = new ArrayList<Team>();
 		for(int i = 48; i < 64; i++){
-			southList.add(teamList.get(i));
+			midwestList.add(teamList.get(i));
 		}
-		String out4 = tournament(southList, out);
+		String out4 = tournament(midwestList, out);
 		return out1+out2+out3+out4;
 	}
 	
@@ -136,31 +136,31 @@ public class MarchMadness {
 	
 	//indexing is convaluted because the regions were shifted around in 2017 bracket
 	public static String finalFour(ArrayList<Team> finalFour, String out){
-		boolean midwest = doesTeam1Win(finalFour.get(0), finalFour.get(3));
-		if(midwest) out+=finalFour.get(0).getName()+", ";
+		boolean west = doesTeam1Win(finalFour.get(1), finalFour.get(0));
+		if(west) out+=finalFour.get(1).getName()+", ";
 		else out+=finalFour.get(3).getName()+", ";
-		boolean east = doesTeam1Win(finalFour.get(2), finalFour.get(1));
-		if(east) out+=finalFour.get(2).getName()+"\n";
-		else out+=finalFour.get(1).getName()+"\n";
-		if(midwest&east){
-			boolean left = doesTeam1Win(finalFour.get(2), finalFour.get(0));
-			if(left) out+=finalFour.get(2).getName();
-			else out+=finalFour.get(0).getName();
+		boolean midwest = doesTeam1Win(finalFour.get(3), finalFour.get(0));
+		if(midwest) out+=finalFour.get(3).getName()+"\n";
+		else out+=finalFour.get(0).getName()+"\n";
+		if(midwest&west){
+			boolean right = doesTeam1Win(finalFour.get(1), finalFour.get(3));
+			if(right) out+=finalFour.get(3).getName();
+			else out+=finalFour.get(1).getName();
 		}
-		if(midwest&!east){
-			boolean left = doesTeam1Win(finalFour.get(1), finalFour.get(0));
-			if(left) out+=finalFour.get(1).getName();
-			else out+=finalFour.get(0).getName();
+		if(midwest&!west){
+			boolean right = doesTeam1Win(finalFour.get(3), finalFour.get(2));
+			if(right) out+=finalFour.get(3).getName();
+			else out+=finalFour.get(2).getName();
 		}
-		if(!midwest&east){
-			boolean left = doesTeam1Win(finalFour.get(2), finalFour.get(3));
-			if(left) out+=finalFour.get(2).getName();
-			else out+=finalFour.get(3).getName();
+		if(!midwest&west){
+			boolean right = doesTeam1Win(finalFour.get(0), finalFour.get(1));
+			if(right) out+=finalFour.get(0).getName();
+			else out+=finalFour.get(1).getName();
 		}
-		if(!midwest&!east){
-			boolean left = doesTeam1Win(finalFour.get(1), finalFour.get(3));
-			if(left) out+=finalFour.get(1).getName();
-			else out+=finalFour.get(3).getName();
+		if(!midwest&!west){
+			boolean right = doesTeam1Win(finalFour.get(0), finalFour.get(2));
+			if(right) out+=finalFour.get(0).getName();
+			else out+=finalFour.get(2).getName();
 		}
 		return out;
 	}

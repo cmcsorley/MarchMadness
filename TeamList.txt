@@ -1,64 +1,64 @@
-Name, 1, Midwest
-Name, 16, Midwest
-Name, 8, Midwest
-Name, 9, Midwest
-Name, 5, Midwest
-Name, 12, Midwest
-Name, 4, Midwest
-Name, 13, Midwest
-Name, 6, Midwest
-Name, 11, Midwest
-Name, 3, Midwest
-Name, 14, Midwest
-Name, 7, Midwest
-Name, 10, Midwest
-Name, 2, Midwest
-Name, 15, Midwest
-Name, 1, West
-Name, 16, West
-Name, 8, West
-Name, 9, West
-Name, 5, West
-Name, 12, West
-Name, 4, West
-Name, 13, West
-Name, 6, West
-Name, 11, West
-Name, 3, West
-Name, 14, West
-Name, 7, West
-Name, 10, West
-Name, 2, West
-Name, 15, West
-Name, 1, East
-Name, 16, East
-Name, 8, East
-Name, 9, East
-Name, 5, East
-Name, 12, East
-Name, 4, East
-Name, 13, East
-Name, 6, East
-Name, 11, East
-Name, 3, East
-Name, 14, East
-Name, 7, East
-Name, 10, East
-Name, 2, East
-Name, 15, East
-Name, 1, South
-Name, 16, South
-Name, 8, South
-Name, 9, South
-Name, 5, South
-Name, 12, South
-Name, 4, South
-Name, 13, South
-Name, 6, South
-Name, 11, South
-Name, 3, South
-Name, 14, South
-Name, 7, South
-Name, 10, South
-Name, 2, South
-Name, 15, South
+1 seed, 1, South
+& seed, 16, South
+8 seed, 8, South
+9 seed, 9, South
+5 seed, 5, South
+# seed, 12, South
+4 seed, 4, South
+$ seed, 13, South
+6 seed, 6, South
+@ seed, 11, South
+3 seed, 3, South
+% seed, 14, South
+7 seed, 7, South
+! seed, 10, South
+2 seed, 2, South
+^ seed, 15, South
+1 seed, 1, West
+& seed, 16, West
+8 seed, 8, West
+9 seed, 9, West
+5 seed, 5, West
+# seed, 12, West
+4 seed, 4, West
+$ seed, 13, West
+6 seed, 6, West
+@ seed, 11, West
+3 seed, 3, West
+% seed, 14, West
+7 seed, 7, West
+! seed, 10, West
+2 seed, 2, West
+^ seed, 15, West
+1 seed, 1, East
+& seed, 16, East
+8 seed, 8, East
+9 seed, 9, East
+5 seed, 5, East
+# seed, 12, East
+4 seed, 4, East
+$ seed, 13, East
+6 seed, 6, East
+@ seed, 11, East
+3 seed, 3, East
+% seed, 14, East
+7 seed, 7, East
+! seed, 10, East
+2 seed, 2, East
+^ seed, 15, East
+1 seed, 1, Midwest
+& seed, 16, Midwest
+8 seed, 8, Midwest
+9 seed, 9, Midwest
+5 seed, 5, Midwest
+# seed, 12, Midwest
+4 seed, 4, Midwest
+$ seed, 13, Midwest
+6 seed, 6, Midwest
+@ seed, 11, Midwest
+3 seed, 3, Midwest
+% seed, 14, Midwest
+7 seed, 7, Midwest
+! seed, 10, Midwest
+2 seed, 2, Midwest
+^ seed, 15, Midwest
