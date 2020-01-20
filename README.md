@@ -4,7 +4,7 @@ A March Madness Simulator
 This program uses probabilities inferred from every March Madness game from 1985-2017 (https://data.world/michaelaroy/ncaa-tournament-results) using Python in order to infer what a theoretical probability might be for any two teams for any difference in seed.
 The assumption here is that a probability of an 8 seed beating a 9 seed is the same as that of a 1 seed beating a 2 seed. The relationship between diffence in seeds and observed probabilities ended up being nearly linear and were inferred using simple linear regression.
 
-A user can then change the number (n) of brackets that they want to simulate, and the program prints the expected number of each seed appearing in each round of the tournament: the Round of 32, the Sweet Sixteen, the Elite Eight, the Final Four, the Final, and the Winner.
+You can choose the number (n) of brackets that you want to simulate, and the program prints the expected number of each seed appearing in each round of the tournament: the Round of 32, the Sweet Sixteen, the Elite Eight, the Final Four, the Final, and the Winner.
 
 A sample output for 2000 simulations is below:
 
